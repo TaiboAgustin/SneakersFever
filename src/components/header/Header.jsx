@@ -1,8 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import  CartWidget  from './CartWidget.jsx'
 import './Header.css';
 
-const header = () =>{
+const Header = () =>{
     const element = <FontAwesomeIcon icon={faBars} /> 
     return(
         <nav>
@@ -12,7 +13,7 @@ const header = () =>{
                 <li><a href="#">Store</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">FAQ</a></li>
+                <CartWidget />
             </ul>
             <label id="icon">
                 <i>{element}</i>
@@ -21,4 +22,4 @@ const header = () =>{
     )
 }
 
-export default header
+export default Header
