@@ -22,13 +22,14 @@ const ItemCount = () =>{
         <Fragment>
             <div className="counterContainer">
                 <div className="counterMid">
-                    <h1>{num}</h1>
+                    <h1 className="productDetail">Product</h1>
+                    <h1 className="num">{num}</h1>
                     <div className="btnCant">
-                        <button onClick={decNum} > Delete </button>
-                        <button onClick={incNum} > Add </button> 
+                        <button className="buttonCounter" onClick={decNum} > Delete </button>
+                        <button className="buttonCounter" onClick={incNum} > Add </button> 
                     </div>
                     <div className="btnAdd">
-                        <button> Add to cart </button>
+                        <button className="buttonCounter"> Add to cart </button>
                     </div>
                 </div>
             </div>

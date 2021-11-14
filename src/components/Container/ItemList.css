@@ -1,0 +1,6 @@
+.containerGrid{
+        display: grid;
+        margin: 1rem;
+        justify-content: center;
+        align-items: center;
+}
