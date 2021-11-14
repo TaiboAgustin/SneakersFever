@@ -5,7 +5,7 @@ import './ItemList.css'
 function ItemList ({ items }){
     return(
         <React.Fragment>
-            <div className="containerGrid">
+            <div className="containerFlex">
             {items.map((item)=>(
                 <Item key={item.id} item={item}/>
             ))}

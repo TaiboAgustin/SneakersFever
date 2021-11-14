@@ -11,7 +11,7 @@ body{
 nav{
     height: 80px;
     width: 100%;
-    background: #C5EFCB;
+    background: #272D40;
 }
 
 label.logo{
@@ -49,7 +49,6 @@ a:hover{
 }
 
 nav #icon{
-    color: #758173;
     font-size: 30px;
     line-height: 80px;
     float: right;

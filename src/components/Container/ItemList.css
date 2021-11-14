@@ -1,5 +1,5 @@
-.containerGrid{
-        display: grid;
+.containerFlex{
+        display: flex;
         margin: 1rem;
         justify-content: center;
         align-items: center;
