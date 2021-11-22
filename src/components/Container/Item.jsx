@@ -11,7 +11,7 @@ const Item = ({ item }) => {
                         <h1 className="cardTitle">{item.name}</h1>
                         <p class="cardDescription">{item.colorway}</p>
                         <span className="cardPrice">{item.price}</span>
-                        <a href="#" className="cardButton">Add to Cart</a>
+                        <a href="#" className="cardButton">See more</a>
                     </div>
                 </div>
             </div>

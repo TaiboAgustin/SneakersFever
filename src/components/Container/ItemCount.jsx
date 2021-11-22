@@ -22,7 +22,7 @@ const ItemCount = () =>{
         <Fragment>
             <div className="counterContainer">
                 <div className="counterMid">
-                    <h1 className="productDetail">Product</h1>
+                    <h1 className="productDetail">Quantity</h1>
                     <h1 className="num">{num}</h1>
                     <div className="btnCant">
                         <button className="buttonCounter" onClick={decNum} > Delete </button>

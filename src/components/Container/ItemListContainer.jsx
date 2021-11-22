@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './ItemListContainer.css';
 import ItemList from './ItemList'
-import ItemCount from './ItemCount';
 import { products } from './items.jsx';
 
 
@@ -32,7 +31,6 @@ function ItemListContainer(props){
                 <p className="cardText">{props.text}</p>
             </div>
             <ItemList items={items} />
-            <ItemCount/>
         </React.Fragment>
     )
 }
