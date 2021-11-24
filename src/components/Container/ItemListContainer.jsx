@@ -1,26 +1,33 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ItemListContainer.css';
 import ItemList from './ItemList'
 import { products } from './items.jsx';
-
-
+import {useParams} from 'react-router-dom';
 
 function ItemListContainer(props){
+    const {categoryId} = useParams()
     const [items, setItems] = useState([])
-    const bringProducts = new Promise ((resolve, reject)=>{
-        setTimeout(() => {
-            resolve(products)
-        }, 2000);
-    })
-    bringProducts
-    .then((res)=>{
-        console.log(products)
-        setItems(res)   
-    })
-    .catch((error)=>{
-        console.log(error)
-    })
 
+    useEffect(() => {
+        const bringProducts = new Promise ((resolve, reject)=>{
+            setTimeout(() => {
+                resolve(products)
+            },2000);
+        })
+        bringProducts
+        .then((res)=>{
+            const filtrar = res.filter(
+                (prod) => prod.categoryId === `${categoryId}`
+            )
+            categoryId === undefined ? setItems(res) : setItems(filtrar)
+            console.log(products)
+               
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }, [categoryId]);
+    
 
 
 

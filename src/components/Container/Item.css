@@ -49,6 +49,7 @@
   .card {
     width: 320px;
     height: 400px;
+    margin: 5px;
     background-color: var(--dark-color);
     border-radius: 1rem;
     padding: 4rem 1rem 0;
@@ -90,7 +91,6 @@
   
   .cardButton {
     display: block;
-    width: max-content;
     padding: 1.125rem 2rem;
     background-color: var(--first-color);
     color: var(--white-color);
