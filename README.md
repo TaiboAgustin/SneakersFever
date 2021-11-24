@@ -1,8 +1,6 @@
 # Getting Started with Create React App
 
 
-[Sneakers Fever React Project.md](https://github.com/TaiboAgustin/SneakersFever/files/7592329/Sneakers.Fever.React.Project.md)
-
 ## Available Scripts
 
 In the project directory, you can run:
