@@ -9,7 +9,8 @@
 
 
 
-
+Site developed by [Taibo Agustin] (https://www.instagram.com/taibo.agus/)
+ReactJS in [Coderhouse](https://www.coderhouse.com/?utm_term=coderhouse&utm_campaign=12058006243&utm_source=google_search_brand&utm_medium=cpc&gclid=CjwKCAiA4veMBhAMEiwAU4XRrz6NSTl9yjm21E2rFwIcweHbge_0FiHilhvkq3n_56brvrT2CJG7IBoCOpsQAvD_BwE)
 
 
 # Getting Started with Create React App
