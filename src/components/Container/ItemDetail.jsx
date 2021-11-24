@@ -29,7 +29,7 @@ const ItemDetail = ({ detail }) => {
                                 <span>{starIcon}</span>
                             </div>
                             <p className= "productDescription"> {detail.description}</p>
-                            <ItemCount />
+                            <ItemCount detail={detail} />
                         </div>
                     </div>
                 </div>

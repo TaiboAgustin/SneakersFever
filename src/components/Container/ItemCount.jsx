@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import './ItemCount.css'
 
-const ItemCount = () =>{
+const ItemCount = ({ detail }) =>{
 
     const [num, setNum] = useState(0)
 
@@ -26,7 +26,7 @@ const ItemCount = () =>{
                     <h1 className="num">{num}</h1>
                     <div className="btnCant">
                         <button className="buttonCounter" onClick={decNum} > Delete </button>
-                        <button className="buttonCounter" onClick={incNum} > Add </button> 
+                        <button className="buttonCounter" onClick={incNum} disabled={num === detail.stock}>Add </button> 
                     </div>
                     <div className="btnAdd">
                         <button className="buttonCounter"> Add to cart </button>
