@@ -3,14 +3,18 @@ import './ItemListContainer.css';
 import ItemList from './ItemList'
 import { products } from './items.jsx';
 import {useParams} from 'react-router-dom';
+import { SyncLoader } from 'react-spinners';
 
 function ItemListContainer(props){
+    const [loading, setLoading] = useState(false)
     const {categoryId} = useParams()
     const [items, setItems] = useState([])
 
     useEffect(() => {
+        setLoading(true)
         const bringProducts = new Promise ((resolve, reject)=>{
             setTimeout(() => {
+                setLoading(false)
                 resolve(products)
             },2000);
         })
@@ -34,10 +38,17 @@ function ItemListContainer(props){
 
     return(
         <React.Fragment>
-            <div className="containerImg">
-                <p className="cardText">{props.text}</p>
-            </div>
-            <ItemList items={items} />
+            {
+                loading
+                ? 
+                    <div className ="loader">
+                        <SyncLoader/>
+                    </div>
+                :
+                    <><div className="containerImg">
+                        <p className="cardText">{props.text}</p>
+                    </div><ItemList items={items} /></>
+            }    
         </React.Fragment>
     )
 }
