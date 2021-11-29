@@ -37,7 +37,7 @@ h1.num{
     box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
-button.buttonCounter{
+button.buttonCounter, .buttonDisabled{
     width: 50%;
     min-height: 40px;
     border-radius: 5%;
@@ -53,6 +53,11 @@ button.buttonCounter{
     margin: 5px;
     transition: .5s;
 }
+.buttonDisabled{
+    background-color: #c5840b;
+    opacity: 0.6;
+}
+
 .btnCant{
     width: 100%;
     display: flex;

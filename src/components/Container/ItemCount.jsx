@@ -29,7 +29,7 @@ const ItemCount = ({ detail, onAdd }) =>{
                         <button className="buttonCounter" onClick={incNum} disabled={num === detail.stock}>Add </button> 
                     </div>
                     <div className="btnAdd">
-                        <button className="buttonCounter" onClick={() =>onAdd(num)} disabled={num === 0}> Add to cart </button>
+                        <button className={num === 0 ? "buttonDisabled" : "buttonCounter"} onClick={() =>onAdd(num)} disabled={num === 0}> Add to cart </button>
                     </div>
                 </div>
             </div>
