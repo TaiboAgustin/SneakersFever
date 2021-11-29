@@ -3,11 +3,12 @@ import { useParams } from 'react-router';
 import ItemDetail from './ItemDetail'
 import { products } from './items.jsx';
 import { SyncLoader } from 'react-spinners';
-import './ItemDetailContainer.css'
+import './ItemDetailContainer.css';
 
 
 function ItemDetailContainer(){
     const [loading, setLoading] = useState(false)
+    const [checkout, setCheckout] = useState(false)
     const { id } = useParams()
     const [detail, setDetail] = useState({})
     useEffect(() => {
@@ -24,12 +25,18 @@ function ItemDetailContainer(){
                 (prod) => prod.id === parseInt(`${id}`)
             )
             setDetail(producto)
-            console.log(products)   
+            //console.log(products)   
         })
         .catch((error)=>{
             console.log(error)
         })
     }, [id])
+
+    const onAdd = (num) =>{
+        //console.log(num)
+        console.log({ ...detail, quantity: num })
+        setCheckout(true)
+    }
 
     return(
             <React.Fragment>
@@ -40,7 +47,11 @@ function ItemDetailContainer(){
                             <SyncLoader/>
                         </div>
                     :
-                    <ItemDetail detail = {detail} />
+                    <ItemDetail 
+                        detail = {detail} 
+                        onAdd = {onAdd} 
+                        checkout = {checkout} 
+                    />
                 }   
             </React.Fragment>    
     )

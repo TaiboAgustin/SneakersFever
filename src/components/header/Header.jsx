@@ -15,7 +15,7 @@ const Header = () =>{
                 <Link to='/category/jordan'>Jordan</Link>
                 <Link to='/category/adidas'>Adidas</Link>
                 <Link to='/category/morebrands'>More Brands</Link>
-                <Link to='/shopping/cart'><CartWidget/></Link>
+                <Link to='/cart'><CartWidget/></Link>
             </ul>
             <label id="icon">
                 <i>{element}</i>

@@ -2,8 +2,10 @@ import React from 'react';
 import Header from './components/header/Header';
 import ItemListContainer from './components/Container/ItemListContainer';
 import ItemDetailContainer from './components/Container/ItemDetailContainer';
+import Cart from './components/Container/Cart';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
 
 function App() {
   return (
@@ -36,6 +38,13 @@ function App() {
             element={
                 <ItemDetailContainer />
           }/>
+
+          <Route 
+            path='/cart' 
+            element={
+                <Cart />
+          }/>
+
         </Routes> 
       </div>
     </BrowserRouter>

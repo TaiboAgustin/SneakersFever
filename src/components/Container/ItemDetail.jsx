@@ -1,10 +1,11 @@
 import './ItemDetail.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-import ItemCount from './ItemCount'
-import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import ItemCount from './ItemCount';
+import React from 'react';
 
-const ItemDetail = ({ detail }) => {
+const ItemDetail = ({ detail, onAdd, checkout }) => {
     const starIcon = <FontAwesomeIcon icon={faStar} />
     return (
         <React.Fragment>
@@ -29,7 +30,22 @@ const ItemDetail = ({ detail }) => {
                                 <span>{starIcon}</span>
                             </div>
                             <p className= "productDescription"> {detail.description}</p>
-                            <ItemCount detail={detail} />
+                            {checkout
+                            ?
+                                <React.Fragment>
+                                    <Link to='/cart'>
+                                        <div className="btnAdd">
+                                            <button className="buttonCounter buttonCheckout"> Go to checkout </button>
+                                        </div>
+                                    </Link>
+                                </React.Fragment>    
+                            :
+                                <React.Fragment>
+                                    <ItemCount detail={detail} onAdd={onAdd} />
+                                </React.Fragment>
+                            }
+                            
+                            
                         </div>
                     </div>
                 </div>
