@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import ItemDetail from './ItemDetail'
 import { products } from './items.jsx';
 import { SyncLoader } from 'react-spinners';
 import './ItemDetailContainer.css';
+import { CartContext } from '../context/CartContext';
 
 
 function ItemDetailContainer(){
@@ -11,6 +12,8 @@ function ItemDetailContainer(){
     const [checkout, setCheckout] = useState(false)
     const { id } = useParams()
     const [detail, setDetail] = useState({})
+    const { addToCart} = useContext(CartContext)
+
     useEffect(() => {
         setLoading(true)
         const bringProducts = new Promise ((resolve, reject)=>{
@@ -34,8 +37,9 @@ function ItemDetailContainer(){
 
     const onAdd = (num) =>{
         //console.log(num)
-        console.log({ ...detail, quantity: num })
+        //console.log({ ...detail, quantity: num })
         setCheckout(true)
+        addToCart(num, detail)
     }
 
     return(

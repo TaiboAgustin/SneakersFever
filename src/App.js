@@ -5,50 +5,52 @@ import ItemDetailContainer from './components/Container/ItemDetailContainer';
 import Cart from './components/Container/Cart';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { CartProvider } from './components/context/CartContext';
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header/>
-        <Routes>
-          <Route 
-            path='/' 
-            element={
-                <ItemListContainer text='Your favorite sneakers resell page. Fully confident and 100% hype. &#128293;' 
-                />
-          }/>
+    <CartProvider>
+      <BrowserRouter>
+        <div className="App">
+          <Header/>
+          <Routes>
+            <Route 
+              path='/' 
+              element={
+                  <ItemListContainer text='Your favorite sneakers resell page. Fully confident and 100% hype. &#128293;' 
+                  />
+            }/>
 
-          <Route 
-            path='/category/:categoryId' 
-            element={
-                <ItemListContainer text='Your favorite sneakers resell page. Fully confident and 100% hype. &#128293;' 
-                />
-          }/>
+            <Route 
+              path='/category/:categoryId' 
+              element={
+                  <ItemListContainer text='Your favorite sneakers resell page. Fully confident and 100% hype. &#128293;' 
+                  />
+            }/>
 
-          <Route 
-            path='/item/:id' 
-            element={
-                <ItemDetailContainer />
-          }/>
+            <Route 
+              path='/item/:id' 
+              element={
+                  <ItemDetailContainer />
+            }/>
 
-          <Route 
-            path='/category/:categoryId/item/:id' 
-            element={
-                <ItemDetailContainer />
-          }/>
+            <Route 
+              path='/category/:categoryId/item/:id' 
+              element={
+                  <ItemDetailContainer />
+            }/>
 
-          <Route 
-            path='/cart' 
-            element={
-                <Cart />
-          }/>
+            <Route 
+              path='/cart' 
+              element={
+                  <Cart />
+            }/>
 
-        </Routes> 
-      </div>
-    </BrowserRouter>
-    
+          </Routes> 
+        </div>
+      </BrowserRouter>
+    </CartProvider>  
   );
 }
 

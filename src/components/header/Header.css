@@ -18,9 +18,14 @@ label.logo{
     font-size: 35px;
     font-weight: 700;
     color: #020402;
-    padding: 0 100px;
-    line-height: 80px;
-    
+    line-height: 80px; 
+    transition: .5s all;
+}
+
+.logo:hover{
+    color: #fff;
+    cursor: pointer;
+    transition: .5s all;
 }
 
 nav ul{
@@ -41,11 +46,12 @@ nav a{
     border: 1px solid transparent;
     padding: 7px 10px;
     border-radius: 3px;
+    transition: .5s all;
 }
 
 a:hover{
-    border: 1px solid #020402;
-    transition: .5s;
+    color: #fff;
+    transition: .5s all;
 }
 
 nav #icon{

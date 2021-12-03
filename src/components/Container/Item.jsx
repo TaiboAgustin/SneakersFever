@@ -4,8 +4,7 @@ import './Item.css'
 
 const Item = ({ item }) => {
     return(
-        <React.Fragment>
-            
+        <React.Fragment>    
                 <div className="container">
                     <div className="card">
                         <img src={item.img} className="cardImg" alt="producto"></img>
@@ -19,8 +18,6 @@ const Item = ({ item }) => {
                         </div>
                     </div>
                 </div>
-            
-
         </React.Fragment>
     )
 }

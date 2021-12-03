@@ -24,8 +24,7 @@ function ItemListContainer(props){
                 (prod) => prod.categoryId === `${categoryId}`
             )
             categoryId === undefined ? setItems(res) : setItems(filtrar)
-            console.log(products)
-               
+            console.log(products)       
         })
         .catch((error)=>{
             console.log(error)
