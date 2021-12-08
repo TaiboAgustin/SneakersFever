@@ -21,7 +21,7 @@ const ItemDetail = ({ detail, onAdd, checkout }) => {
                         <div className= "productDivRight">
                             <span className= "productName">{detail.name}</span>
                             <span className= "productColorway"> {detail.colorway} </span>
-                            <p className= "productPrice"> {detail.price} </p>
+                            <p className= "productPrice"> ${detail.price} </p>
                             <div className= "productRating">
                                 <span>{starIcon}</span>
                                 <span>{starIcon}</span>
@@ -36,6 +36,11 @@ const ItemDetail = ({ detail, onAdd, checkout }) => {
                                     <Link to='/cart'>
                                         <div className="btnAdd">
                                             <button className="buttonCounter buttonCheckout"> Go to checkout </button>
+                                        </div>
+                                    </Link>
+                                    <Link to='/'>
+                                        <div className="btnAdd">
+                                            <button className="buttonCounter buttonBackShopping"> Continue shopping </button>
                                         </div>
                                     </Link>
                                 </React.Fragment>    

@@ -77,12 +77,22 @@ button.buttonCounter, .buttonDisabled{
     width: 100% !important;
     border-radius: 0 !important;
 }
+.buttonBackShopping{
+    background-color: #F2A20C !important;
+    padding: 1rem!important;
+    display: flex !important;
+    margin: 3rem auto !important;
+    transition: .5s all;
+    width: 100% !important;
+    border-radius: 0 !important;
+}
 
 .buttonCheckout:hover{
     box-shadow: 0 18px 40px -12px rgba(80, 250, 7, 0.5)!important;
 }
 
-.buttonCounter:hover {
+.buttonCounter:hover,
+.buttonBackShopping:hover {
     box-shadow: 0 18px 40px -12px rgba(242,162,12,.35);
-  }
+}
 

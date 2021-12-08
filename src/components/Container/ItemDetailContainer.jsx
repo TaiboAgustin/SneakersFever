@@ -4,8 +4,7 @@ import ItemDetail from './ItemDetail'
 import { products } from './items.jsx';
 import { SyncLoader } from 'react-spinners';
 import './ItemDetailContainer.css';
-import { CartContext } from '../context/CartContext';
-
+import { CartContext } from '../../context/CartContext'
 
 function ItemDetailContainer(){
     const [loading, setLoading] = useState(false)

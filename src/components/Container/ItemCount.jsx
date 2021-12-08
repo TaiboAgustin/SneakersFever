@@ -16,8 +16,7 @@ const ItemCount = ({ detail, onAdd }) =>{
         else{
             setNum(0);
         }
-    }
-     
+    }    
     return(
         <Fragment>
             <div className="counterContainer">
