@@ -4,6 +4,7 @@ import ItemList from './ItemList'
 import { products } from './items.jsx';
 import {useParams} from 'react-router-dom';
 import { SyncLoader } from 'react-spinners';
+import { getFirestore, collection, getDocs, doc, QuerySnapshot } from 'firebase/firestore'
 
 function ItemListContainer(props){
     const [loading, setLoading] = useState(false)
@@ -11,29 +12,23 @@ function ItemListContainer(props){
     const [items, setItems] = useState([])
 
     useEffect(() => {
+        const database = getFirestore()
+        const itemCollection = collection(database, 'sneakers')
         setLoading(true)
-        const bringProducts = new Promise ((resolve, reject)=>{
-            setTimeout(() => {
-                setLoading(false)
-                resolve(products)
-            },2000);
+        getDocs(itemCollection).then((snapshot) =>{
+            const prod = snapshot.docs.map((doc) =>{
+                return{
+                    id: doc.id,
+                    ...doc.data(),
+                }
+            })
+            const categories = prod.filter((i) => i.categories === '${id}')
+            categoryId === undefined ? setItems(prod) : setItems(categories)
+        }).finally(() =>{
+            console.log(categoryId)
+            setLoading(false)
         })
-        bringProducts
-        .then((res)=>{
-            const filtrar = res.filter(
-                (prod) => prod.categoryId === `${categoryId}`
-            )
-            categoryId === undefined ? setItems(res) : setItems(filtrar)
-            console.log(products)       
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
-    }, [categoryId]);
-    
-
-
-
+}, [categoryId]);
 
     return(
         <React.Fragment>
