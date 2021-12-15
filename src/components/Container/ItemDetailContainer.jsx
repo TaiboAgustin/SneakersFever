@@ -24,11 +24,13 @@ function ItemDetailContainer(){
         
         getDoc(itemCollection).then((snapshot) =>{
             if(snapshot.exists()){
-                setItems({id: snapshot.id, ...snapshot.data()})
+                setItems({
+                    id: snapshot.id, 
+                    ...snapshot.data()
+                })
             }
         })
-        setLoading(false)
-        
+        setLoading(false)       
 }, [id]);
 
     const onAdd = (num) =>{

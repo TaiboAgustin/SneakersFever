@@ -22,7 +22,7 @@ function ItemListContainer(props){
                     ...doc.data(),
                 }
             })
-            const categories = prod.filter((i) => i.categories === '${id}')
+            const categories = prod.filter((i) => i.categoryId === categoryId)
             categoryId === undefined ? setItems(prod) : setItems(categories)
         }).finally(() =>{
             console.log(categoryId)
