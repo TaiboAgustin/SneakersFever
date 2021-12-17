@@ -129,8 +129,9 @@
     padding: 20px;
     height: 240px;
     width: 500px;
-    border: 2px solid silver;
     border-radius: 5px;
+    margin-bottom: 15rem;
+    margin-top: 5rem;
 }
 .cartTotal p{
     display: flex;
@@ -140,7 +141,35 @@
     align-items: center;
 }
 
-.cartTotal a{
+
+.formTicket{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.inputTicket{
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    margin-top: 15px !important;
+    margin:auto;
+    background: rgba(242, 162, 12, 0.5);
+    border: none;
+    color: rgb(39, 45, 64);
+    transition: .5s all;
+    border-radius: 5px;
+}
+
+.inputTicket:focus{
+    background:  #F2A20C ;
+    border: none;
+    transition: .5s all;
+}
+
+
+.buttonFinishBuy{
+    margin-top: 20px ;
     display: block;
     text-align: center;
     height: 40px;
@@ -148,8 +177,24 @@
     background-color: #9ce37d;
     color: #fff;
     text-decoration: none;
+    transition: .5s all;
+    border-radius: 5px;
 }
 
-.cartTotal a:hover{
+.buttonFinishBuy:hover{
     background-color: #58963d;
+    transition: .5s all;
+}
+
+.buttonFinishBuyDisabled{
+    opacity: .4 !important;
+    margin-top: 20px ;
+    display: block;
+    text-align: center;
+    background-color: black;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-decoration: none;
+    transition: .5s all;
 }

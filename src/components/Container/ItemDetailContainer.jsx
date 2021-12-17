@@ -9,15 +9,11 @@ import { getFirestore, doc, getDoc } from 'firebase/firestore'
 function ItemDetailContainer(){
     const [checkout, setCheckout] = useState(false)
     const { addToCart} = useContext(CartContext)
-
-
     const [loading, setLoading] = useState(false)
     const { id } = useParams()
-    console.log(id)
     const [items, setItems] = useState({})
 
     useEffect(() => {
-
         const database = getFirestore()
         const itemCollection = doc(database, 'sneakers', id)
         setLoading(true)
@@ -55,7 +51,6 @@ function ItemDetailContainer(){
                 }   
             </React.Fragment>    
     )
-
 }
 
 export default ItemDetailContainer

@@ -1,28 +1,57 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CartContext } from '../../context/CartContext'
 import './Cart.css'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
+import { getFirestore, collection, addDoc } from 'firebase/firestore'
+import Order from './Order'
 
 const Cart = () => {
     const cartRemove = <FontAwesomeIcon icon={faTrashAlt} />
-    const {cart, totalPrice, deleteFromCart, clearItems, totalQuantity} = useContext(CartContext)
-    if(totalPrice()===0){
-        return(
-            <React.Fragment>
-                <div className="bannerBackToShop">
-                    <div className="textBanner">
-                        <h3>Empty shopping cart</h3>
-                    </div>
-                    <Link to='/'><button className="buttonBackToShop"><h3>Back to shop</h3></button></Link>
-                </div>
-            </React.Fragment>
-        )
+    const {cart, totalPrice, getUser, deleteFromCart, clearItems, totalQuantity} = useContext(CartContext)
+    const [goTicket, setGoTicket] = useState(false)
+    const [form, getForm] = useState ({nombre:'', email:''})
+
+    const formComplete = (e) =>{
+        const {name, value} = e.target
+        getForm({
+            ...form,
+            [name]: value
+        })
     }
-    else{
+    
+    const date = new Date()
+
+    const finishBuy = () =>{
+        getUser(form)
+        const database = getFirestore()
+        const ref = collection (database, 'ticket')
+        const newOrder = {
+            buyer: form.email,
+            items: cart,
+            date: date,
+            total: totalPrice()
+        }
+        addDoc(ref, newOrder)
+        setGoTicket(true)
+        clearItems()
+    }
+    // if(totalPrice()===0){
+    //     return(
+    //         <React.Fragment>
+    //             <div className="bannerBackToShop">
+    //                 <div className="textBanner">
+    //                     <h3>Empty shopping cart</h3>
+    //                 </div>
+    //                 <Link to='/'><button className="buttonBackToShop"><h3>Back to shop</h3></button></Link>
+    //             </div>
+    //         </React.Fragment>
+    //     )
+    // }
+    // else{
         return (
             <React.Fragment>
+            {!goTicket ?(
                 <div className="cartContainer">
                 <h1>Checkout</h1>
                     <div className="cartItems">
@@ -54,16 +83,60 @@ const Cart = () => {
                                     <span>{totalQuantity()}</span>
                                 </p>
                                 <p className="productRemoveAll">
-                                    {cartRemove}
                                     <span className="remove" onClick={clearItems}>Remove all items</span>
                                 </p>
-                                <a href="#">Finish buying</a>
+                                    <form
+                                        className="formTicket"
+                                        method="POST"
+                                        onSubmit={finishBuy}
+                                        style={{
+                                            margin: '15px 0px'
+                                        }}
+                                    >
+                                    <input
+                                        className="inputTicket"
+                                        onChange={formComplete}
+                                        type="email"
+                                        name='email'
+                                        placeholder='Enter your email address'
+                                    />
+                                    <input
+                                        className="inputTicket"
+                                        onChange={formComplete}
+                                        type="text"
+                                        name='name'
+                                        placeholder='Enter your full name'
+                                    />
+                                    <button
+                                        className={form.email=== '' || form.name=== '' ? "buttonFinishBuyDisabled" : "buttonFinishBuy"}
+                                        disabled={
+                                            cart?.length === 0 ||
+                                            form.name === '' ||
+                                            form.email === ''
+                                        }
+                                    >
+                                        {
+                                            form.email=== '' || form.name=== '' ? 'Complete with your personal data' : 'Finish buying'
+                                        }
+                                        
+                                    </button>
+                                    </form>
+                                    
+                                
                             </div>
                         
                 </div>     
+            )
+            : 
+            (
+                <Order />
+            )
+            }    
+            
             </React.Fragment>
+            
         )
     }
     
-}
+
 export default Cart

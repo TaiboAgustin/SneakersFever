@@ -4,7 +4,7 @@ import ItemList from './ItemList'
 import { products } from './items.jsx';
 import {useParams} from 'react-router-dom';
 import { SyncLoader } from 'react-spinners';
-import { getFirestore, collection, getDocs, doc, QuerySnapshot } from 'firebase/firestore'
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 function ItemListContainer(props){
     const [loading, setLoading] = useState(false)
@@ -15,6 +15,7 @@ function ItemListContainer(props){
         const database = getFirestore()
         const itemCollection = collection(database, 'sneakers')
         setLoading(true)
+        
         getDocs(itemCollection).then((snapshot) =>{
             const prod = snapshot.docs.map((doc) =>{
                 return{
@@ -25,7 +26,7 @@ function ItemListContainer(props){
             const categories = prod.filter((i) => i.categoryId === categoryId)
             categoryId === undefined ? setItems(prod) : setItems(categories)
         }).finally(() =>{
-            console.log(categoryId)
+            //console.log(categoryId)
             setLoading(false)
         })
 }, [categoryId]);

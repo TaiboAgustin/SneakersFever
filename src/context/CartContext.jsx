@@ -4,6 +4,7 @@ export const CartContext = React.createContext()
 
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
+    const [userEmail, setUserEmail] = useState ('')
     
     /*verificar si el producto ya esta en el carrito*/
     const isOnCart = (id) =>{
@@ -61,8 +62,12 @@ export const CartProvider = ({children}) => {
         return finalQuantity;
     };
 
+    const getUser = (form) => {
+        setUserEmail(form);
+    }
+
     return(
-        <CartContext.Provider value={{ addToCart, cart, deleteFromCart, totalPrice, clearItems, totalQuantity }}>
+        <CartContext.Provider value={{ addToCart, cart, deleteFromCart, totalPrice, clearItems, totalQuantity, getUser, userEmail }}>
             {children}
         </CartContext.Provider>
     )
