@@ -41,7 +41,10 @@ const Order = () => {
                 <React.Fragment>
                     <h1 className="ticketText">Thanks for your buy, here are your buy ticket:</h1>
                     {order.map((ord) => {
-                        <Message key={ord.id} ord={ord} />
+                        return(
+                            <Message key={ord.id} ord={ord} />
+                        )
+                        
                     })}
                     <Link to='/'><button className="buttonBackToShop"><h3>Continue shopping</h3></button></Link>
                 </React.Fragment>

@@ -108,7 +108,7 @@ const Cart = () => {
                                         placeholder='Enter your full name'
                                     />
                                     <button
-                                        className={form.email=== '' || form.name=== '' ? "buttonFinishBuyDisabled" : "buttonFinishBuy"}
+                                        className={form.email=== '' && form.name=== '' ? "buttonFinishBuyDisabled" : "buttonFinishBuy"}
                                         disabled={
                                             cart?.length === 0 ||
                                             form.name === '' ||

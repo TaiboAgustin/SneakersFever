@@ -1,6 +1,9 @@
 .ticketText{
+    font-size: 50px;
     display: flex;
     text-align: center;
     margin: auto;
     justify-content: center;
+    margin-top: 20px !important;
+    text-shadow: 0 0 20px #F2A20C;
 }
