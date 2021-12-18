@@ -1,7 +1,7 @@
 :zap: Sneakers Fever React Project :fire:
 =============
 
-:stuck_out_tongue_winking_eye: **Wassup!** My name is Agustin, im a FrontEnd developer and a very apassionated for the sneakers world, so I decided to to put the two worlds together and create this project called "*SneakersFever*". It simulates a Sneakers ecommerce, you can view the product, add to cart the quantity you like according to the stock avaliable, and you can see the details of each product... amazing, right? Well, this page is still in development fase but as I add things or remove others, I will update this description. So enjoy the development process with me. :muscle:
+:stuck_out_tongue_winking_eye: **Wassup!** My name is Agustin, im a FrontEnd developer and a very apassionated for the sneakers world, so I decided to to put the two worlds together and create this project called "*SneakersFever*". It simulates a Sneakers ecommerce, you can view the product, add to cart the quantity you like according to the stock avaliable, and you can see the details of each product... amazing, right? Well, this page is fully completed, is already in deploy version and fully usable I hope you like this poject. :muscle:
 
 ###### page demo :point_down:
 ![Demo](public/gif/SneakersFeverDemo.gif)
