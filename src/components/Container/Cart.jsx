@@ -36,19 +36,7 @@ const Cart = () => {
         setGoTicket(true)
         clearItems()
     }
-    // if(totalPrice()===0){
-    //     return(
-    //         <React.Fragment>
-    //             <div className="bannerBackToShop">
-    //                 <div className="textBanner">
-    //                     <h3>Empty shopping cart</h3>
-    //                 </div>
-    //                 <Link to='/'><button className="buttonBackToShop"><h3>Back to shop</h3></button></Link>
-    //             </div>
-    //         </React.Fragment>
-    //     )
-    // }
-    // else{
+
         return (
             <React.Fragment>
             {!goTicket ?(
